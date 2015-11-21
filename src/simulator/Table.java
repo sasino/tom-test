@@ -57,14 +57,6 @@ public class Table {
     return 1;
   }
   
-  public int getSize() {
-    return size;
-  }
-  
-  public int getOccupied() {
-    return occupied;
-  }
-  
   public int getRemaining() {
     return size - occupied;
   }
@@ -74,7 +66,7 @@ public class Table {
    * @return the number of available size.
    */
   public int getAvailable() {
-    int avail = 0;
+    int avail = size - occupied;
     for (CustomerGroup customer : allCustomers) {
       if (customer.getState() instanceof StateWaitingFood) {
         avail += customer.getSize();
